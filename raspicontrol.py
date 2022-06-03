@@ -25,7 +25,7 @@ def temp(update):
 def contact(update):
     update.message.replay_text("More about Tim: https://t1ms22.github.io")
 
-updater = telegram.ext.updater(TOKEN)
+updater = telegram.ext.updater(TOKEN, use_context=False)
 disp = updater.dispatcher
 
 disp.add_handler(telegram.ext.CommandHandler("start", start))
