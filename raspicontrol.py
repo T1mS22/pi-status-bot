@@ -1,4 +1,4 @@
-import telegram.ext
+from telegram.ext import Updater, CommandHandler
 from gpiozero import CPUTemperature
 
 with open('token.txt', 'r') as f:
@@ -25,13 +25,13 @@ def temp(update):
 def contact(update):
     update.message.replay_text("More about Tim: https://t1ms22.github.io")
 
-updater = telegram.ext.updater(TOKEN, use_context=False)
+updater = Updater(TOKEN, use_context=False)
 disp = updater.dispatcher
 
-disp.add_handler(telegram.ext.CommandHandler("start", start))
-disp.add_handler(telegram.ext.CommandHandler("help ", help))
-disp.add_handler(telegram.ext.CommandHandler("temp", temp))
-disp.add_handler(telegram.ext.CommandHandler("contact", contact))
+disp.add_handler(CommandHandler("start", start))
+disp.add_handler(CommandHandler("help ", help))
+disp.add_handler(CommandHandler("temp", temp))
+disp.add_handler(CommandHandler("contact", contact))
 
 updater.start_polling()
 updater.idle()
