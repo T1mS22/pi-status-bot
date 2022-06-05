@@ -1,6 +1,9 @@
 from telegram.ext import Updater, CommandHandler
 from gpiozero import CPUTemperature
 
+
+global TOKEN
+
 with open('token.txt', 'r') as f:
     TOKEN = f.read()
 
