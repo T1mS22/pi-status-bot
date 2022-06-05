@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler
+from telegram.ext import Updater, CommandHandler
 from gpiozero import CPUTemperature, DiskUsage
 
 
@@ -9,7 +9,7 @@ cpu = CPUTemperature()
 disk = DiskUsage()
 
 def start(update, context):
-    update.message.reply_text("Hey! Welcome to RaspiControl. I'm a bot that can send you status data about your Raspberry Pi.")
+    update.message.reply_text("Hey! Welcome to RaspiControl. I'm a bot that can send you status data about your Raspberry Pi. Best way to start is typing /help")
 
 def help(update, context):
     update.message.reply_text("""
