@@ -1,8 +1,11 @@
+#!/home/pi/pi-status-bot/venv/bin/python
+import os
 from telegram.ext import Updater, CommandHandler
 from gpiozero import CPUTemperature, DiskUsage
 
+token_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'token.txt')
 
-with open('token.txt', 'r') as f:
+with open(token_file_path, 'r') as f:
     TOKEN = f.readline().replace('\n', '')
 
 cpu = CPUTemperature()
