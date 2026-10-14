@@ -1,0 +1,14 @@
+[Unit]
+Description=RaspiControl Telegram bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/pi-status-bot
+ExecStart=/home/pi/pi-status-bot/venv/bin/python /home/pi/pi-status-bot/raspicontrol.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
